@@ -7,3 +7,4 @@
 @_exported import UIKitDSLArchitecture
 @_exported import UIKitDSLAnimation
 @_exported import UIKitDSLHotReload
+@_exported import UIKitDSLPermissions

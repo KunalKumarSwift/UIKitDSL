@@ -13,6 +13,7 @@ let package = Package(
         .library(name: "UIKitDSLLayout", targets: ["UIKitDSLLayout"]),
         .library(name: "UIKitDSLArchitecture", targets: ["UIKitDSLArchitecture"]),
         .library(name: "UIKitDSLAnimation", targets: ["UIKitDSLAnimation"]),
+        .library(name: "UIKitDSLPermissions", targets: ["UIKitDSLPermissions"]),
     ],
     targets: [
         // MARK: - Source Targets
@@ -50,6 +51,11 @@ let package = Package(
             ]
         ),
         .target(
+            name: "UIKitDSLPermissions",
+            dependencies: ["UIKitDSLCore", "UIKitDSLArchitecture"],
+            path: "Sources/UIKitDSLPermissions"
+        ),
+        .target(
             name: "UIKitDSL",
             dependencies: [
                 "UIKitDSLCore",
@@ -58,6 +64,7 @@ let package = Package(
                 "UIKitDSLArchitecture",
                 "UIKitDSLAnimation",
                 "UIKitDSLHotReload",
+                "UIKitDSLPermissions",
             ],
             path: "Sources/UIKitDSL"
         ),
@@ -83,6 +90,11 @@ let package = Package(
             name: "UIKitDSLArchitectureTests",
             dependencies: ["UIKitDSLArchitecture"],
             path: "Tests/UIKitDSLArchitectureTests"
+        ),
+        .testTarget(
+            name: "UIKitDSLPermissionsTests",
+            dependencies: ["UIKitDSLPermissions", "UIKitDSLComponents"],
+            path: "Tests/UIKitDSLPermissionsTests"
         ),
     ]
 )
