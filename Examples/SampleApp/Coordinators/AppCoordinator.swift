@@ -27,6 +27,12 @@ final class AppCoordinator: Coordinator {
         let coord = ProfileCoordinator(navigationController: navigationController)
         add(child: coord)
     }
+
+    func showPermissions() {
+        let vm = PermissionStore()
+        let vc = PermissionsScreen(viewModel: vm, coordinator: self)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - ProfileCoordinator
